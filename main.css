@@ -1,0 +1,114 @@
+body {
+  background-color: #000;
+}
+
+.row {
+  position: relative;
+  overflow: hidden;
+  height: 100vh;
+  background-color: #000;
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 40vh;
+  background-size: 65vw;
+}
+
+.row._1 {
+  background-image: url(finishes_black__b06syayq94wi_small_2x.png);
+}
+
+.row._2 {
+  background-color: #eee;
+
+  background-image: url(finishes_white__drv9fwq9vzwy_small_2x.png);
+}
+
+.row._3 {
+  background-color: #fdafb1;
+  background-image: url(finishes_red__eqfv1ongy282_small_2x.png);
+}
+.row._4 {
+  background-image: url(finishes_red__eqfv1ongy282_small_2x.png);
+}
+
+.bear {
+  width: 300px;
+  margin-top: -220px;
+  margin-bottom: 30px;
+}
+
+.text-holder {
+  position: absolute;
+  left: 0%;
+  top: 0%;
+  right: 0%;
+  bottom: 0%;
+  overflow: hidden
+}
+
+.text {
+  color: #eee;
+  font-size: 1.5rem;
+  font-weight: 900;
+  line-height: 1.25;
+  position: fixed;
+  left: 0%;
+  top: 0%;
+  margin: 20vh 0;
+  padding: 0 15vw;
+}
+
+.text._2 {color: #000;}
+.text-2-l1 {color: #999;}
+.text-2-l2 {color: #000;}
+
+.text-3-l1 {color: #ddd}
+.text-3-l2 {color: #ddd}
+.text-3-l3 {color: #fff}
+
+/* The magic starts here *
+
+/* Clipping text on scroll >> all browsers excl. IE and Edge */
+.text-holder {
+  clip-path: inset(0px 0px 0px 0px);
+  -webkit-clip-path: inset(0px 0px 0px 0px);
+}
+
+/* Clipping text on scroll and workaround re display: flex >> IE10+ */
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
+  .text-holder {
+    clip: rect(0, auto, auto, 0);
+  }
+
+  .text {
+    display: block;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 50vh;
+  }
+}
+
+/* Clipping text on scroll and workaround re display: flex >> Edge 12+ */
+@supports (-ms-accelerator:true) {
+  .text-holder {
+    clip: rect(0, auto, auto, 0);
+  }
+
+  .text {
+    display: block;
+    width: 100%;
+    text-align: center;
+    vertical-align: middle;
+    padding-top: 50vh;
+  }
+}
+
+/* Clipping text on scroll and workaround re display: flex >> Edge 16+ */
+@supports (-ms-ime-align:auto) {
+  .text-holder {
+    clip: rect(0, auto, auto, 0);
+  }
+}
