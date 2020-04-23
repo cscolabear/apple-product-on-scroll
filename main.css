@@ -5,10 +5,59 @@
 a {
   text-decoration: none;
 }
+a:visited { color: #000; }
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+small {
+  font-size: 70%;
+}
+
+
+.tag {
+  font-size: 90%;
+  font-family: Helvetica, Arial, sans-serif;
+  background: #588fe5;
+  display: inline-block;
+  color: #fff;
+  position: relative;
+  padding: 5px;
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  margin: 10px 30px 0 0;
+  text-decoration: none;
+}
+
+.tag:before {
+  background: #fff;
+  width: 6px;
+  height: 6px;
+  content: "";
+  display: inline-block;
+  border-radius: 20px;
+  margin: 0 5px 0 0;
+}
+
+.tag:after {
+  display: inline-block;
+  border: 13px solid;
+  border-color: transparent transparent transparent #588fe5;
+  height: 0;
+  width: 0;
+  position: absolute;
+  right: -26px;
+  top: 0;
+  content: "";
+  display: inline-block;
+}
+
 
 .header-section {
-  height: 50px;
-  background-color: aqua;
+  min-height:100px;
+  background-color: lemonchiffon;
+  padding: 20px 3%;
 }
 
 .text-section p {
@@ -67,14 +116,18 @@ a {
   -webkit-clip-path: inset(100% 0px 0px 0px);
 }
 
-.product span {
+.product-text {
   font-size: 8vw;
   font-weight: 900;
 
   z-index: 10;
   position: absolute;
-  top: 20%;
-  right: 20%;
+  top: 50%;
+  left: 50%;
+  transform: translate3d(-15%, -70%, 0);
+
+  height: 40vw;
+  width:50vw;
 }
 
 .product._1 {
@@ -92,6 +145,13 @@ a {
 }
 
 .product-2-info-1 {
+  color: rgb(146, 146, 6);
+}
+.product-2-info-2::before,
+.product-3-info-2::before {
+  content: "　";
+}
+.product-2-info-2 {
   color: rgb(37, 175, 185);
 }
 
@@ -101,6 +161,12 @@ a {
 }
 
 .product-3-info-1 {
+  color: rgb(126, 126, 17);
+}
+.product-3-info-2 {
+  color: rgb(2, 119, 128);
+}
+.product-3-info-3 {
   color: rgb(235, 70, 40);
 }
 
@@ -146,6 +212,31 @@ a {
 }
 
 .car {
-  font-size: 160%;
+  font-size: 200%;
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
   display: inline-block;
+}
+.car::after {
+  content: "💨";
+  font-size: 60%;
+  margin-left: -5px;
+
+  animation-name: wave-animation;
+  animation-duration: 2.5s;
+  animation-iteration-count: infinite;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+@keyframes wave-animation {
+    0% { transform: rotate(  0.0deg) }
+   10% { transform: rotate(-10.0deg) }
+   20% { transform: rotate( 12.0deg) }
+   30% { transform: rotate(-10.0deg) }
+   40% { transform: rotate(  9.0deg) }
+   50% { transform: rotate(  0.0deg) }
+  100% { transform: rotate(  0.0deg) }
 }
