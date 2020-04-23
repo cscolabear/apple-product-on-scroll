@@ -19,20 +19,45 @@
             apple product on scroll effects
         </h1>
         <div>
+            <a id="tag"></a>
             <span class="tag">position: sticky</span>
             <span class="tag">clip-path: inset</span>
             <span class="tag">scroll</span>
+            <span class="tag">requestAnimationFrame</span>
             <span class="tag">apple</span>
+            <span class="tag">gogoro</span>
         </div>
-        <!-- <a herf=""></a>
-        https://github.com/cscolabear/apple-product-on-scroll
-        https://cscolabear.github.io/apple-product-on-scroll/ -->
     </section>
     <section class="text-section">
         <div>
             <p>
+                參考以下頁面仿製，並借用部份素材(如有不當請告知 🙇‍♂️)<br>
                 <a href="https://www.apple.com/tw/iphone-se/" target="_blank">https://www.apple.com/tw/iphone-se/</a><br>
                 <a href="https://www.gogoro.com/tw/smartscooter/viva/" target="_blank">https://www.gogoro.com/tw/smartscooter/viva/</a>
+            </p>
+            <p>
+                商品具多顏色選擇時，使用這個呈現方式視覺上和使用者體驗都不錯<br>
+                除了讓畫面簡單乾淨，也能帶上產品大標做為特色說明~
+            </p>
+            <p style="margin-bottom: 0;">
+                如上 <a href="#tag">tag</a> 所示~，這個特效需要用到下面這些功能
+            </p>
+            <ul>
+                <li>position: sticky: <br>
+                    鎖住部份區塊(section) 達成視差捲動
+                </li>
+                <li>clip-path: inset<br>
+                    最關鍵的遮罩效果，用後層蓋住前層<br>
+                    完全覆蓋: clip-path: inset(100% 0px 0px 0px);<br>
+                    不覆蓋: clip-path: inset(0% 0px 0px 0px);
+                </li>
+                <li>scroll, requestAnimationFrame<br>
+                    配合上面，每個 frame 檢查 scroll 位置以此計算遮罩百分比
+                </li>
+            </ul>
+
+            <p>
+                <h3>先看看下面的效果~</h3>
             </p>
         </div>
     </section>
@@ -41,14 +66,14 @@
             <div class="stack-container">
                 <div class="product _1">
                     <div class="product-text">
-                        <span class="product-1-info-1"><small>這是</small>萊姆灰</span>
+                        <span class="product-1-info-1"><small>簡單</small>萊姆灰</span>
                         <br><br>
                     </div>
                     <div class="product-img"><img src="FCD-LimeGrey.png"></div>
                 </div>
                 <div class="product _2 product-clip-path">
                     <div class="product-text">
-                        <span class="product-2-info-1"><small>這是</small>萊姆灰</span><br>
+                        <span class="product-2-info-1"><small>簡單</small>萊姆灰</span><br>
                         <span class="product-2-info-2">薄荷藍<small>滿街跑</small></span>
                         <br>
                     </div>
@@ -56,8 +81,8 @@
                 </div>
                 <div class="product _3 product-clip-path">
                     <div class="product-text">
-                        <span class="product-3-info-1"><small>這是</small>萊姆灰</span><br>
-                        <span class="product-3-info-2">薄荷藍<small>也不錯</small></span><br>
+                        <span class="product-3-info-1"><small>簡單</small>萊姆灰</span><br>
+                        <span class="product-3-info-2">薄荷藍<small>滿街跑</small></span><br>
                         <span class="product-3-info-3">石榴紅<small><small>超特別</small></small></span>
                     </div>
                     <div class="product-img"><img src="FCD-PomegranteRed.png"></div>
@@ -71,14 +96,17 @@
         </div>
         <div class="product-img-info">
             <a href="https://www.gogoro.com/tw/smartscooter/specs/?models=gogoro-viva-plus" target="_blank"
-                class="car-button">馬上牽回家?
-
+                class="car-button">
+                <span>馬上牽回家?</span>
                 <span class="car"> 🛵</span>
             </a>
         </div>
     </section>
     <section class="other-section">other</section>
-    <section class="footer-section">footer</section>
+    <section class="footer-section">
+        https://github.com/cscolabear/apple-product-on-scroll
+        https://cscolabear.github.io/apple-product-on-scroll/
+    </section>
 
 </body>
 <script src="main.js"></script>
