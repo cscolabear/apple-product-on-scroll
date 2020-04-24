@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>localhost Title</title>
+    <title>apple product on scroll</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <link rel='stylesheet'
         href='https://cdnjs.cloudflare.com/ajax/libs/modern-normalize/0.6.0/modern-normalize.min.css' />
@@ -69,7 +69,7 @@
                         <span class="product-1-info-1"><small>簡單</small>萊姆灰</span>
                         <br><br>
                     </div>
-                    <div class="product-img"><img src="FCD-LimeGrey.png"></div>
+                    <div class="product-img"><img src="./images/FCD-LimeGrey.png"></div>
                 </div>
                 <div class="product _2 product-clip-path">
                     <div class="product-text">
@@ -77,7 +77,7 @@
                         <span class="product-2-info-2">薄荷藍<small>滿街跑</small></span>
                         <br>
                     </div>
-                    <div class="product-img"><img src="FCD-MintBlue.png"></div>
+                    <div class="product-img"><img src="./images/FCD-MintBlue.png"></div>
                 </div>
                 <div class="product _3 product-clip-path">
                     <div class="product-text">
@@ -85,7 +85,7 @@
                         <span class="product-3-info-2">薄荷藍<small>滿街跑</small></span><br>
                         <span class="product-3-info-3">石榴紅<small><small>超特別</small></small></span>
                     </div>
-                    <div class="product-img"><img src="FCD-PomegranteRed.png"></div>
+                    <div class="product-img"><img src="./images/FCD-PomegranteRed.png"></div>
                 </div>
             </div>
         </div>
@@ -97,18 +97,28 @@
         <div class="product-img-info">
             <a href="https://www.gogoro.com/tw/smartscooter/specs/?models=gogoro-viva-plus" target="_blank"
                 class="car-button">
-                <span>馬上牽回家?</span>
+                <span>checkout it now!!</span>
                 <span class="car"> 🛵</span>
             </a>
         </div>
     </section>
     <section class="reset-section text-section">
         <p>
-            這樣的效果需要很多個容器來完成
+            以上<br>
+            這樣的效果需要很多個容器來組合完成<br>
+            由外至內逐一說明~
         </p>
         <ul>
             <li>.color-section<br>
                 是整個特效的主容器，定義整個區塊可捲動範圍(也就是有幾個過場區塊/畫面)
+                例如有三個產品區塊該容器的高度最少應該是...
+                <pre><code class="code css"
+                    style="height: 160px;">
+    height: calc(3 * 100vh);
+
+    /* 也可以額外多加入一些高度做為捲動 buffer，減緩 product 區塊的出場時間 */
+    height: calc((3 * 100vh) + 100vh);
+                </code></pre>
             </li>
             <li>.sticky-container<br>
                 完成 sticky(fixed) 功能的容器<br>
@@ -117,15 +127,37 @@
             <li>.stack-container<br>
                 把多過場區塊堆疊在一個畫面內的容器
             </li>
-        </ul
+            <li>.product _1 ~ _3<br>
+                product 過場區塊/畫面用容器<br>
+                包含 product 說明文字和大圖<br>
+                在這個區塊可以加入更多的花式效果讓畫面更有趣 🙄
+            </li>
+        </ul>
+        <p>
+            再接著看下一個範例~
+        </p>
     </section>
     <section class="reset-section">other</section>
     <section class="footer-section">
         https://github.com/cscolabear/apple-product-on-scroll
         https://cscolabear.github.io/apple-product-on-scroll/
+
+        "The Notch" and CSS: env safe-area-inset
+        https://www.codewall.co.uk/css-env-variables-for-todays-edge-screen-devices/
+
+        https://css-tricks.com/the-notch-and-css/
+        https://webkit.org/blog/7929/designing-websites-for-iphone-x/
     </section>
 
 </body>
-<script src="main.js"></script>
 
+<script src="main.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js"></script>
+<link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/a11y-dark.min.css">
+<script>
+    document.querySelectorAll('.code').forEach(elem => {
+        hljs.highlightBlock(elem);
+    });
+</script>
 </html>
