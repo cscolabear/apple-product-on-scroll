@@ -92,10 +92,14 @@ li {
   word-wrap: break-word;
 }
 
-.color-section {
+.color-section,
+.color-section-2 {
   position: relative;
   z-index: 1;
   height: calc((3 * 100vh) + 100vh);
+}
+.color-section-2 {
+  height: calc((3 * 100vh) + 110vh);
 }
 
 .color-section-offset {
@@ -131,7 +135,8 @@ li {
   overflow: hidden;
 }
 
-.product {
+.product,
+.product2 {
   height: 100vh;
   width: 100%;
   padding: 0 20px;
@@ -144,6 +149,11 @@ li {
   -webkit-clip-path: inset(100% 0px 0px 0px);
 }
 
+.product-clip-path-vertical {
+  clip-path: inset(0px 100% 0px 0px);
+  -webkit-clip-path: inset(0px 100% 0px 0px);
+}
+
 .product-text {
   font-size: 8vw;
   font-weight: 900;
@@ -151,7 +161,7 @@ li {
   z-index: 10;
   position: absolute;
   top: 50%;
-  left: 50%;
+  left: 45%;
   transform: translate3d(-15%, -65%, 0);
 
   height: 30vw;
@@ -176,13 +186,9 @@ li {
   color: rgb(194, 194, 37);
 }
 
-.product-2-info-2::before,
-.product-3-info-2::before {
-  content: "\00a0 \00a0 \00a0 ";
-}
-
 .product-2-info-2 {
   color: rgb(37, 175, 185);
+  margin-left: 10%;
 }
 
 .product._3 {
@@ -196,15 +202,51 @@ li {
 
 .product-3-info-2 {
   color: rgb(2, 119, 128);
+  margin-left: 10%;
 }
 
 .product-3-info-3 {
   color: rgb(235, 70, 40);
-  text-shadow: 0 0 black,
-    0 1px black,
-    1px 0 black,
-    0 0 black;
+  margin-left: -15%;
 }
+
+.product2._1 {
+  z-index: 2;
+  background-color: #000;
+}
+
+.product2-1-info-1 {
+  color:#fff;
+}
+
+.product2._2 {
+  z-index: 3;
+  background-color: whitesmoke;
+}
+
+.product2-2-info-1 {
+  color:#999;
+}
+.product2-2-info-2 {
+  color:#000;
+}
+
+.product2._3 {
+  z-index: 4;
+  background-color: #960b19;
+}
+
+.product2-3-info-1 {
+  color:#e57571;
+}
+.product2-3-info-2 {
+  color:#e57571;
+}
+.product2-3-info-3 {
+  color:#f5f5f7;
+  font-size: 12vw;
+}
+
 
 .product-img {
   width: 150vw;
@@ -213,6 +255,17 @@ li {
   bottom: -23vw;
   left: 50%;
   transform: translate3d(-50%, 0, 0);
+}
+
+.product2 .product-img {
+  width: max(40vw, 35vh);
+  bottom: min(-35vw, -10vh);
+}
+
+.product2 .product-text{
+  top: max(40vh, 22vw);
+  left: 40%;
+  width: 70vw;
 }
 
 .product-img img {
