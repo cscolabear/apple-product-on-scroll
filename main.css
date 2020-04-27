@@ -1,7 +1,18 @@
 * {
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+
+}
+*:focus {
+  outline: none;
+}
+input:focus, textarea:focus, select:focus{
+  outline: none;
 }
 
+img {
+  width: 100%;
+}
 a:not(#tag)::before {
   content: "➡️";
 }
@@ -70,7 +81,8 @@ li {
 }
 
 
-.header-section {
+.header-section,
+.footer-section {
   min-height: 100px;
   background-color: lemonchiffon;
   padding:
@@ -113,11 +125,6 @@ li {
 .other-section {
   height: 500px;
   background-color: brown;
-}
-
-.footer-section {
-  height: 300px;
-  background-color: aqua;
 }
 
 .sticky-container {

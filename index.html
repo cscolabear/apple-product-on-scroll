@@ -32,8 +32,10 @@
         <div>
             <p>
                 參考以下頁面仿製，並借用部份素材(如有不當請告知 🙇‍♂️)<br>
-                <a href="https://www.apple.com/tw/iphone-se/" target="_blank">https://www.apple.com/tw/iphone-se/</a><br>
-                <a href="https://www.gogoro.com/tw/smartscooter/viva/" target="_blank">https://www.gogoro.com/tw/smartscooter/viva/</a>
+                <a href="https://www.apple.com/tw/iphone-se/"
+                    target="_blank">https://www.apple.com/tw/iphone-se/</a><br>
+                <a href="https://www.gogoro.com/tw/smartscooter/viva/"
+                    target="_blank">https://www.gogoro.com/tw/smartscooter/viva/</a>
             </p>
             <p>
                 商品具多顏色選擇時，使用這個呈現方式視覺上和使用者體驗都不錯<br>
@@ -43,15 +45,16 @@
                 如上 <a href="#tag">tag</a> 所示~，這個特效需要用到下面這些功能
             </p>
             <ul>
-                <li>position: sticky: <br>
+                <li><strong>sticky: </strong><br>
                     鎖住部份區塊(section) 達成視差捲動
                 </li>
-                <li>clip-path: inset<br>
+                <li><strong>inset</strong><br>
                     最關鍵的遮罩效果，用後層蓋住前層<br>
                     完全覆蓋: clip-path: inset(100% 0px 0px 0px);<br>
-                    不覆蓋: clip-path: inset(0% 0px 0px 0px);
+                    不覆蓋: clip-path: inset(0% 0px 0px 0px);<br>
+                    ps: 以上為水平效果
                 </li>
-                <li>scroll, requestAnimationFrame<br>
+                <li><strong>scroll, requestAnimationFrame</strong><br>
                     配合上面，每個 frame 檢查 scroll 位置以此計算遮罩百分比
                 </li>
             </ul>
@@ -92,7 +95,7 @@
     </section>
     <section class="color-section-offset">
         <div class="product-img product-img-offset">
-            <img src="FCD-PomegranteRed.png">
+            <img src="./images/FCD-PomegranteRed.png">
         </div>
         <div class="product-img-info">
             <a href="https://www.gogoro.com/tw/smartscooter/specs/?models=gogoro-viva-plus" target="_blank"
@@ -106,10 +109,11 @@
         <p>
             以上<br>
             這樣的效果需要很多個容器來組合完成<br>
+            <img src="https://user-images.githubusercontent.com/4863629/80335512-15725b80-8887-11ea-84ac-9d3615206432.png" alt="html architecture"><br>
             由外至內逐一說明~
         </p>
         <ul>
-            <li>.color-section<br>
+            <li><strong>.color-section</strong><br>
                 是整個特效的主容器，定義整個區塊可捲動範圍(也就是有幾個過場區塊/畫面)
                 例如有三個產品區塊該容器的高度最少應該是...
                 <pre><code class="code css"
@@ -120,14 +124,14 @@
     height: calc((3 * 100vh) + 100vh);
                 </code></pre>
             </li>
-            <li>.sticky-container<br>
+            <li><strong>.sticky-container</strong><br>
                 完成 sticky(fixed) 功能的容器<br>
                 別忘了一個過場區塊高度等於使用者裝置高度(100vh)
             </li>
-            <li>.stack-container<br>
+            <li><strong>.stack-container</strong><br>
                 把多過場區塊堆疊在一個畫面內的容器
             </li>
-            <li>.product _1 ~ _3<br>
+            <li><strong>.product _1 ~ _3</strong><br>
                 product 過場區塊/畫面用容器<br>
                 包含 product 說明文字和大圖<br>
                 在這個區塊可以加入更多的花式效果讓畫面更有趣 🙄
@@ -167,18 +171,63 @@
         </div>
     </section>
     <section class="reset-section text-section">
-        <p>並沒有將所有部份處理的很好</p>
+        <p>並沒有將所有部份像 apple 官網一樣處理的很好，部份畫面上的小問題尚待解決<br>
+            有另外處理 screen notch 問題(詳細影響請看<a href="#notch">註 Notch</a>)<br>
+            <br>
+            未去除 notch 頭尾有空白區域<br>
+            <img src="https://user-images.githubusercontent.com/4863629/80333823-ead1d400-8881-11ea-9da5-7300a868d37a.jpg" alt="has notch"
+            style="border: 1px solid #000;"><br>
+
+            去除 notch 令圖片滿版<br>
+            <img src="https://user-images.githubusercontent.com/4863629/80333820-e86f7a00-8881-11ea-8b61-ca0a49a9bef1.jpg" alt="without notch"
+            style="border: 1px solid #000;"><br>
+        </p>
+
+        <p>簡單在 html head meta content 內加入 viewport-fit=cover</p>
+        <pre><code class="code css"
+            style="height: 80px;">
+ &lt;meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"&gt;
+            </code></pre>
+        <p>另外還需要處理 padding safe area，避免文字被手機裝置 notch 蓋住</p>
+        <pre><code class="code css"
+                style="height: 180px;">
+    padding:
+        max(calc(env(safe-area-inset-top) + 10px), 20px)
+        max(calc(env(safe-area-inset-right) + 1%), 3%)
+        max(calc(env(safe-area-inset-bottom) + 10px), 20px)
+        max(calc(env(safe-area-inset-left) + 1%), 3%);
+    </code></pre>
+    <p>
+        上面 padding 因網頁設計和調整個人喜歡做調整，所以用到 calc() 和 max()
+    </p>
 
     </section>
-    <section class="footer-section">
-        https://github.com/cscolabear/apple-product-on-scroll
-        https://cscolabear.github.io/apple-product-on-scroll/
+    <section class="reset-section text-section" style="background-color: cornsilk;">
+        <p>當然這樣的效果也有缺點，像是效能問題和 `link anchor` (可以試試當擊該頁的 註 Notch)<br>
+        UX 上不是那麼好</p>
+    </section>
+    <section class="reset-section text-section" style="background-color:blanchedalmond;">
+        <p>
+        "The Notch" and CSS: env safe-area-inset<br>
+        <a href="https://www.codewall.co.uk/css-env-variables-for-todays-edge-screen-devices/"
+        id ="notch" target="_blank" rel="noreferrer noopener">
+            https://www.codewall.co.uk/css-env-variables-for-todays-edge-screen-devices/
+        </a><br>
+        <a href="https://css-tricks.com/the-notch-and-css/"
+        target="_blank" rel="noreferrer noopener">
+            https://css-tricks.com/the-notch-and-css/</a><br>
+        <a href="https://webkit.org/blog/7929/designing-websites-for-iphone-x/"
+        target="_blank" rel="noreferrer noopener">
+            https://webkit.org/blog/7929/designing-websites-for-iphone-x/</a>
+            </p>
 
-        "The Notch" and CSS: env safe-area-inset
-        https://www.codewall.co.uk/css-env-variables-for-todays-edge-screen-devices/
-
-        https://css-tricks.com/the-notch-and-css/
-        https://webkit.org/blog/7929/designing-websites-for-iphone-x/
+    </section>
+    <section class="footer-section text-section">
+        <a href="https://github.com/cscolabear/apple-product-on-scroll"
+        target="_blank">github source code</a><br>
+        <a href="https://cscolabear.github.io/apple-product-on-scroll/""
+         target="_blank">Demo</a>
+        <div style="height: 10vh;"></div>
     </section>
 
 </body>
@@ -191,5 +240,7 @@
     document.querySelectorAll('.code').forEach(elem => {
         hljs.highlightBlock(elem);
     });
+
 </script>
+
 </html>
