@@ -14,7 +14,8 @@ body {
   background-color: lemonchiffon;
 }
 img {
-  width: 100%;
+  max-width:100%;
+  max-height:100%;
 }
 a:not(#tag)::before {
   content: "➡️";
