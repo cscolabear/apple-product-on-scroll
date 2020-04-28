@@ -42,13 +42,14 @@
                 除了讓畫面簡單乾淨，也能帶上產品大標做為特色說明~
             </p>
             <p style="margin-bottom: 0;">
+                <img src="https://user-images.githubusercontent.com/4863629/80348383-4f9c2700-88a0-11ea-88b1-d443b9201f79.jpg" alt="apple new iphone se color"><br>
                 如上 <a href="#tag">tag</a> 所示~，這個特效需要用到下面這些功能
             </p>
             <ul>
-                <li><strong>sticky: </strong><br>
+                <li><strong>position sticky: </strong><br>
                     鎖住部份區塊(section) 達成視差捲動
                 </li>
-                <li><strong>inset</strong><br>
+                <li><strong>css inset</strong><br>
                     最關鍵的遮罩效果，用後層蓋住前層<br>
                     完全覆蓋: clip-path: inset(100% 0px 0px 0px);<br>
                     不覆蓋: clip-path: inset(0% 0px 0px 0px);<br>
@@ -108,7 +109,7 @@
     <section class="reset-section text-section">
         <p>
             以上<br>
-            這樣的效果需要很多個容器來組合完成<br>
+            這樣的效果需要多個容器來組合完成<br>
             <img src="https://user-images.githubusercontent.com/4863629/80335512-15725b80-8887-11ea-84ac-9d3615206432.png" alt="html architecture"><br>
             由外至內逐一說明~
         </p>
@@ -120,7 +121,7 @@
                     style="height: 160px;">
     height: calc(3 * 100vh);
 
-    /* 也可以額外多加入一些高度做為捲動 buffer，減緩 product 區塊的出場時間 */
+    /* 也可以額外加入一些高度做為捲動 buffer，減緩 product 區塊的出場時間 */
     height: calc((3 * 100vh) + 100vh);
                 </code></pre>
             </li>
@@ -129,7 +130,7 @@
                 別忘了一個過場區塊高度等於使用者裝置高度(100vh)
             </li>
             <li><strong>.stack-container</strong><br>
-                把多過場區塊堆疊在一個畫面內的容器
+                把多個過場區塊堆疊在一個畫面內的容器
             </li>
             <li><strong>.product _1 ~ _3</strong><br>
                 product 過場區塊/畫面用容器<br>
@@ -138,6 +139,7 @@
             </li>
         </ul>
         <p>
+            <img src="https://user-images.githubusercontent.com/4863629/80437784-28dc0000-8935-11ea-99c4-7bf32dc99dd8.png" alt="架構透視圖"><br>
             再接著看下一個範例~
         </p>
     </section>
@@ -203,7 +205,8 @@
 
     </section>
     <section class="reset-section text-section" style="background-color: cornsilk;">
-        <p>當然這樣的效果也有缺點，像是效能問題和 `link anchor` (可以試試當擊該頁的 註 Notch)<br>
+        <p>當然這樣的效果也有缺點，像是效能問題和 `link anchor`<br>
+            如果使用者第一次進入這頁並使用 `#notch`，可以看到畫面捲動時的奇怪效果<br>
         UX 上不是那麼好</p>
     </section>
     <section class="reset-section text-section" style="background-color:blanchedalmond;">
@@ -222,7 +225,7 @@
             </p>
 
     </section>
-    <section class="footer-section text-section">
+    <section class="footer-section">
         <a href="https://github.com/cscolabear/apple-product-on-scroll"
         target="_blank">github source code</a><br>
         <a href="https://cscolabear.github.io/apple-product-on-scroll/""

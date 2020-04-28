@@ -10,6 +10,9 @@ input:focus, textarea:focus, select:focus{
   outline: none;
 }
 
+body {
+  background-color: lemonchiffon;
+}
 img {
   width: 100%;
 }
@@ -93,6 +96,8 @@ li {
 }
 
 .text-section {
+  background-color: ghostwhite;
+
   padding:
     max(calc(env(safe-area-inset-top) + 20px), 30px)
     max(calc(env(safe-area-inset-right) + 2%), 4%)
